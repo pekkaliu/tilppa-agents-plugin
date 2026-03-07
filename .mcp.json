@@ -7,13 +7,6 @@
         "authServerMetadataUrl": "https://prepared-visit-90-staging.authkit.app/.well-known/oauth-authorization-server"
       }
     },
-    "tilppa-contacts": {
-      "type": "http",
-      "url": "https://mcp.tilppa.com/contacts",
-      "oauth": {
-        "authServerMetadataUrl": "https://prepared-visit-90-staging.authkit.app/.well-known/oauth-authorization-server"
-      }
-    },
     "tilppa-admin": {
       "type": "http",
       "url": "https://mcp.tilppa.com/admin",
@@ -21,9 +14,9 @@
         "authServerMetadataUrl": "https://prepared-visit-90-staging.authkit.app/.well-known/oauth-authorization-server"
       }
     },
-    "tilppa-teach": {
+    "tilppa-platform": {
       "type": "http",
-      "url": "https://mcp.tilppa.com/teach",
+      "url": "https://mcp.tilppa.com/platform",
       "oauth": {
         "authServerMetadataUrl": "https://prepared-visit-90-staging.authkit.app/.well-known/oauth-authorization-server"
       }

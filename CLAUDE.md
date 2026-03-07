@@ -59,11 +59,10 @@ All tags follow `prefix:value` format: `scope:`, `project:`, `feature:`, `epic:`
 
 ## MCP Servers
 
-4 MCP servers connect automatically via OAuth (no manual token configuration needed):
-- `tilppa-agents` -- core: tasks, knowledge, decisions, workshops, governance
-- `tilppa-contacts` -- contact management
-- `tilppa-admin` -- user management, audit, settings, clearance
-- `tilppa-teach` -- codebase analysis and knowledge generation
+3 MCP servers connect automatically via OAuth (no manual token configuration needed):
+- `tilppa-agents` -- core: tasks, knowledge, decisions, workshops, contacts, teach, governance (trust, autonomy, approval gates)
+- `tilppa-admin` -- settings, onboarding, audit, clearance, policies, shaping
+- `tilppa-platform` -- org management, user management, DB management (founder/dev only)
 
 ## Authentication
 
