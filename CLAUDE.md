@@ -25,7 +25,6 @@ This loads: user info, notifications, active roles, open tasks, knowledge index,
 | skills | `/tilppa-agents:tilppa-skills` | Load org-specific custom skills |
 | org | `/tilppa-agents:tilppa-org` | Multi-org management, context switching |
 | teach | `/tilppa-agents:tilppa-teach` | Analyze codebases, generate knowledge |
-| onboarding | `/tilppa-agents:tilppa-onboarding` | New team member onboarding |
 
 ## Knowledge-First Rule
 
@@ -59,10 +58,12 @@ All tags follow `prefix:value` format: `scope:`, `project:`, `feature:`, `epic:`
 
 ## MCP Servers
 
-3 MCP servers connect automatically via OAuth (no manual token configuration needed):
+3 MCP servers connect automatically via OAuth:
 - `tilppa-agents` -- core: tasks, knowledge, decisions, workshops, contacts, teach, governance (trust, autonomy, approval gates)
 - `tilppa-admin` -- settings, onboarding, audit, clearance, policies, shaping
 - `tilppa-platform` -- org management, user management, DB management (founder/dev only)
+
+Requires Claude Code v2.1.7+ for deferred tool loading (MCP tool search) -- tools are discovered on-demand via ToolSearch instead of loading all into context.
 
 ## Authentication
 
@@ -78,4 +79,3 @@ If MCP tools are missing or `/tilppa-agents:tilppa-refresh` fails:
 2. **Authenticated?** -- `/mcp` > check server status, re-authenticate if needed
 3. **Claude Code version?** -- Requires v2.1.64+ for OAuth support
 4. **Server running?** -- `curl https://agents.tilppa.com/health`
-5. **Not registered?** -- Register at https://agents.tilppa.com
