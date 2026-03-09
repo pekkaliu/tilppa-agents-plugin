@@ -90,12 +90,16 @@ This is the most valuable phase. Skipping it loses all learnings for the team.
 
 1. **Milestones** — `milestones_update requirement_key="..." status="completed|in_progress"`
 2. **Tasks** — verify all task statuses are correct (`done`, `in_progress`, `blocked`)
-3. **Knowledge** — ALWAYS search first, then update or create:
-   - `knowledge_list search="topic"` — find existing items
-   - If found → `knowledge_update id="..." content="..."` (update existing)
-   - If NOT found → `knowledge_create` (create new)
-   - **NEVER create without searching first — duplicates degrade the knowledge base**
-4. **Decisions** — same dedup rule (if already created during decision phase, do not duplicate)
+3. **Decisions** — create new decisions (dedup: don't duplicate if already created during decision phase)
+4. **Knowledge — Proactive impact scan** (CRITICAL):
+   a. **Create/update for workshop topics**: search → update existing or create new
+   b. **Find ALL affected items**: Search broadly for items that reference topics changed by workshop decisions:
+      - `knowledge_list search="<changed topic>"` for each major decision
+      - `knowledge_list tags_any=["feature:X", "project:Y"]` for related items
+   c. **Load full content** (`knowledge_get`) — list previews are truncated, you MUST read full content to check for stale info
+   d. **Update every item** with stale info: outdated commands, wrong counts, old flows, deprecated approaches
+   e. **Add ⚠️ warnings** to items describing implementations that will change (e.g., "⚠️ TP-XXX will change this")
+   f. **Verify**: "If a new session reads these items, will it have accurate information?"
 
 ### Related Org Skills
 
