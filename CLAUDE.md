@@ -21,6 +21,7 @@ This loads: user info, notifications, active roles, open tasks, knowledge index,
 | workshop | `/tilppa-agents:tilppa-workshop` | Multi-agent workshops for planning |
 | milestone | `/tilppa-agents:tilppa-milestone` | Track progress, manage templates |
 | notification | `/tilppa-agents:tilppa-notification` | Reminders, messages, pending checks |
+| onboarding | `/tilppa-agents:tilppa-onboarding` | New team member onboarding |
 | governance | `/tilppa-agents:tilppa-governance` | Clearance, shaping, trust, policies |
 | skills | `/tilppa-agents:tilppa-skills` | Load org-specific custom skills |
 | teach | `/tilppa-agents:tilppa-teach` | Analyze codebases, generate knowledge |
@@ -42,6 +43,7 @@ This loads: user info, notifications, active roles, open tasks, knowledge index,
 - Skip the knowledge-first check before reading code
 - Assume infrastructure details -- verify with knowledge DB first
 - Shorten UUIDs -- always use full IDs for knowledge, decisions, tasks, and sessions
+- Respond without knowing the user's profile. If refresh hasn't been run, call `whoami` first. Adapt communication based on the user's context field: match vocabulary, detail level, and language to their role and expertise.
 
 **ALWAYS:**
 - Use subagents to parallelize independent work
