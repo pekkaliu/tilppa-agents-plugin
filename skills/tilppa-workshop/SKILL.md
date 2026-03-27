@@ -57,7 +57,7 @@ workshop_synthesize   session_id="..." [phase_id="..."]         # Synthesize out
 
 ### Runbook Management
 
-`runbook_list` | `runbook_get name` | `runbook_create name ...` | `runbook_customize name ...` | `runbook_reset name`
+`runbook_list` | `runbook_get name` | `runbook_create name ...` | `runbook_update name ...` | `runbook_delete name` | `runbook_customize name ...` | `runbook_reset name`
 
 ### Related Org Skills
 

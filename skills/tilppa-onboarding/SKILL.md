@@ -25,9 +25,16 @@ Detect from user's environment locale. Supported: fi, en. Default: en.
    - `workshop` — plan features or decisions collaboratively
    - `other` — explore on my own
 4. **Save answers:** `onboarding_update answers={"role_type": "...", "first_goal": "..."}` (server: admin)
-5. **Save profile:** `users_manage action="update_profile" user_id="..." profile={...}` (server: platform)
-6. **Activate roles:** `role_manage action="add" role_names=[...]` (server: agents)
-7. **Complete:** `onboarding_update status="completed"` (server: admin)
+5. **Step 3 — Generate context:** Using the user's role_type, first_goal, and org_info, write a ~100 word description covering:
+   - Their role in the company (real role, not Tilppa agent roles)
+   - Their expertise and technical background
+   - Communication preferences (language, detail level, vocabulary)
+   - Ask the user: "Does this sound right? What would you change?"
+   - User approves or edits → save as `answers.context`
+6. **Save answers with context:** `onboarding_update answers={"role_type": "...", "first_goal": "...", "context": "...", "locale": "..."}` (server: admin)
+7. **Save profile:** `users_manage action="update_profile" user_id="..." profile={...}` (server: platform)
+8. **Activate roles:** `role_manage action="add" role_names=[...]` (server: agents)
+9. **Complete:** `onboarding_update status="completed"` (server: admin)
 
 ### Role Activation Mapping
 

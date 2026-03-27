@@ -24,6 +24,7 @@ This loads: user info, notifications, active roles, open tasks, knowledge index,
 | onboarding | `/tilppa-agents:tilppa-onboarding` | New team member onboarding |
 | governance | `/tilppa-agents:tilppa-governance` | Clearance, shaping, trust, policies |
 | skills | `/tilppa-agents:tilppa-skills` | Load org-specific custom skills |
+| org | `/tilppa-agents:tilppa-org` | Multi-org management, context switching |
 | teach | `/tilppa-agents:tilppa-teach` | Analyze codebases, generate knowledge |
 
 ## Knowledge-First Rule
