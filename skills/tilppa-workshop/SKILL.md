@@ -32,13 +32,16 @@ When the user requests a workshop, **always provide the full command** with all 
 
 ### Phase Instructions Cascade
 
-Phase instructions are delivered by MCP server via `workshop_advance`. Three layers merge in order:
+Phase instructions are delivered by MCP server via `workshop_advance`. Four layers merge in order:
 
 1. **Template** (base) — runbook template phases from DB
-2. **Project** — `project_update id="slug" config={"phase_overrides": {"modify_phases": {"exploration": {"instructions": "Custom"}}}}`
-3. **User** — `runbook_customize name phase_overrides={...}`
+2. **Org** — `runbook_org_customize modify_phases={...}` (admin-only, instructions **appended** not replaced)
+3. **Project** — `project_update id="slug" config={"phase_overrides": {"modify_phases": {"exploration": {"instructions": "Custom"}}}}`
+4. **User** — `runbook_customize name phase_overrides={...}`
 
 Merge: `modify_phases` = shallow merge per phase, `remove_phases` = filter, `add_phases` = append.
+
+**Org layer is special:** instructions are concatenated (appended), not replaced — org rules are mandatory additions that project/user overrides cannot remove. Other fields (goal, depth, etc.) use standard override. Omit `template_name` for global override (all templates).
 
 **Follow `phase_instructions` in each phase** — they contain goals, instructions, expected outputs, and thinking mode.
 
@@ -57,7 +60,7 @@ workshop_synthesize   session_id="..." [phase_id="..."]         # Synthesize out
 
 ### Runbook Management
 
-`runbook_list` | `runbook_get name` | `runbook_create name ...` | `runbook_update name ...` | `runbook_delete name` | `runbook_customize name ...` | `runbook_reset name`
+`runbook_list` | `runbook_get name` | `runbook_create name ...` | `runbook_update name ...` | `runbook_delete name` | `runbook_customize name ...` | `runbook_reset name` | `runbook_org_customize [template_name] ...` | `runbook_org_reset [template_name]`
 
 ### Related Org Skills
 
